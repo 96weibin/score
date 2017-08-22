@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>亲 五星好评唷！</title>
+    <style>
+        .star{
+            width: 30px;
+            height: 30px;
+            border:1px solid yellow;
+            margin-left: 20px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <span id="num">0分</span>
+    <script>
+        var oStars = document.getElementsByClassName('star');
+        var oSpan = document.getElementById('num')
+        for(var i = 0; i < oStars.length; i++) {
+            (function(j) {
+                oStars[j].onclick = function() {
+                    //init
+                    for(var c = 0; c < oStars.length; c++){
+                        oStars[c].style.backgroundColor = '#fff';
+                    }
+                    oSpan.innerHTML = j + 1 + '分';
+                    for(var k = 0; k <= j; k++) {
+                        oStars[k].style.backgroundColor = 'yellow';
+                    }
+                    
+                }
+            }(i))
+        }
+    </script>
+</body>
+</html>
